@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Iniciar sesión</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">    
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Ubuntu" rel="stylesheet">
+</head>
+<body>
+    <div class="contenedor-login">
+        <!-- Columna izquierda: Imagen -->
+        <div class="columna-izquierda">
+            <img src="img/fondonutricion.png" alt="Descripción de la imagen" class="imagen-login">
+        </div>
+        <!-- Columna derecha: Formulario de inicio de sesión -->
+        <div class="columna-derecha">
+            <h1>Iniciar sesión</h1>
+            
+            <!-- Mostrar mensaje de error si existe -->
+            <!-- <?php
+            if (isset($_GET['error']) && $_GET['error'] == 1) {
+                echo '<div style="color: red;">Nombre de usuario o contraseña incorrectos.</div>';
+            }
+            ?> -->
+
+            
+
+            <form action="procesar_login.php" method="post" onsubmit="return validarFormulario()">
+                <label for="username">Nombre de usuario o Correo electrónico <span class="req">*</span></label><br>
+                <input type="text" id="username" name="username" required><br>
+                <label for="password">Contraseña <span class="req">*</span></label><br>
+                <input type="password" id="password" name="password" required><br><br>
+                <input type="submit" class="button button-block" value="Iniciar sesión">
+            </form>
+            <br>
+            <p>¿No tienes una cuenta? <a href="registro.php">Regístrate aquí</a></p>
+        </div>
+    </div>
+
+    <script>
+        function validarFormulario() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Validar nombre de usuario o correo electrónico
+            if (username === "") {
+                alert("Por favor, ingresa tu nombre de usuario o correo electrónico.");
+                return false;
+            }
+
+            // Validar contraseña
+            if (password === "") {
+                alert("Por favor, ingresa tu contraseña.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>
